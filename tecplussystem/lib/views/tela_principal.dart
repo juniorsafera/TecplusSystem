@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tecplussystem/components/lista_os.dart';
+import 'package:tecplussystem/data/dados.dart';
 import 'package:tecplussystem/models/os.dart';
 import 'package:tecplussystem/utils/paleta_cores.dart';
 
@@ -11,11 +13,9 @@ class TelaPrincipal extends StatefulWidget {
   State<TelaPrincipal> createState() => _TelaPrincipalState();
 }
 
-List<ModelOS> _os = [];
-List<ModelOS> get _dadosOs {
-  return _os.toList();
-}
+final os = dadosOS.toList();
 
+ 
 class _TelaPrincipalState extends State<TelaPrincipal> {
   @override
   Widget build(BuildContext context) {
@@ -94,34 +94,9 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                           ),
                           child: Column(
                             children: [
+                              
                               Text('Aberto'),
-                              ListView.builder(
-                                  itemCount: _os.length,
-                                  itemBuilder: (context, index) {
-                                    final listaOs = _os[index];
-                                    return Container(
-                                      child: ListTile(
-                                        leading: Container(
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.red)),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(5),
-                                            child: FittedBox(
-                                                child: Text(
-                                              'OS',
-                                              // ignore: prefer_const_constructors
-                                              style: TextStyle(
-                                                color: Colors.red,
-                                                fontSize: 16,
-                                              ),
-                                            )),
-                                          ),
-                                        ),
-                                        title: Text(listaOs.aparelho),
-                                      ),
-                                    );
-                                  })
+                                 ListaOs(os: os),
                             ],
                           ),
                         ),

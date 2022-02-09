@@ -3,7 +3,7 @@ class ModelOS {
   final String tipo;
   final DateTime dataEntrada;
   final String cliente;
-  final String sistema;
+  final bool sistema;
   final String aparelho;
   final bool molhado;
   final List problemasRelatados;
