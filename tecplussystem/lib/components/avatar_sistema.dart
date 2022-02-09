@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tecplussystem/utils/paleta_cores.dart';
 
 class AvatarSistema extends StatelessWidget {
   final String sistema;
@@ -9,8 +10,12 @@ class AvatarSistema extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: avoid_unnecessary_containers
-    return Container(
-      child: Text(sistema),
+    return  CircleAvatar(
+      backgroundColor: PaletaCores.corClara,
+      child: Padding(
+        padding: const EdgeInsets.all(3),
+        child: Image.asset(sistema),
+      ),
     );
   }
 }

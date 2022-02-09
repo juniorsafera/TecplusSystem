@@ -15,7 +15,6 @@ class TelaPrincipal extends StatefulWidget {
 
 final os = dadosOS.toList();
 
- 
 class _TelaPrincipalState extends State<TelaPrincipal> {
   @override
   Widget build(BuildContext context) {
@@ -94,9 +93,31 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                           ),
                           child: Column(
                             children: [
-                              
-                              Text('Aberto'),
-                                 ListaOs(os: os),
+                              Row(
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  // ignore: prefer_const_constructors
+                                  Text(
+                                    'Aberto',
+                                    // ignore: prefer_const_constructors
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        decoration: TextDecoration.none),
+                                  ),
+                                  Container(
+                                    width: 10,
+                                    height: 10,
+                                    // ignore: prefer_const_constructors
+                                    decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius:
+                                        const  BorderRadius.all(Radius.circular(50)),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              ListaOs(os: os),
                             ],
                           ),
                         ),
