@@ -38,21 +38,26 @@ class ListaOs extends StatelessWidget {
               child: Column(
                 children: [
                   Card(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 100,
-                    ),
+                    
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
                     color: PaletaCores.corPrimaria,
                     child: ListTile(
-                      leading: AvatarSistema(sistema: sistemaAparelho),
-                      title: Text(
-                        listaOs.aparelho,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                      leading: Container(
+                        // ignore: prefer_const_constructors
+                        margin: EdgeInsets.only(left: 80),
+                        child: AvatarSistema(sistema: sistemaAparelho)),
+                      title: Container(
+                          // ignore: prefer_const_constructors
+                          margin: EdgeInsets.only(right: 100),
+                        child: Text(
+                          listaOs.aparelho,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                       subtitle: Padding(
@@ -73,14 +78,17 @@ class ListaOs extends StatelessWidget {
                       ),
                       onTap: () {},
                       // ignore: prefer_const_constructors
-                      trailing: Text(
-                        dadosCliente
-                            .map((e) => e.nome)
-                            .toString()
-                            .replaceAll('(', '')
-                            .replaceAll(')', ''),
-                        // ignore: prefer_const_constructors
-                        style: TextStyle(color: Colors.white),
+                      trailing: Container(
+                        margin: EdgeInsets.only(right: 80),
+                        child: Text(
+                          dadosCliente
+                              .map((e) => e.nome)
+                              .toString()
+                              .replaceAll('(', '')
+                              .replaceAll(')', ''),
+                          // ignore: prefer_const_constructors
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
