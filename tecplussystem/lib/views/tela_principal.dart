@@ -5,6 +5,7 @@ import 'package:tecplussystem/components/botao_menu.dart';
 import 'package:tecplussystem/components/lista_os.dart';
 import 'package:tecplussystem/data/dados.dart';
 import 'package:tecplussystem/utils/paleta_cores.dart';
+import 'package:line_icons/line_icons.dart';
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({
@@ -121,13 +122,23 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // Botao ADD
-                          Container(
-                            width: 70,
-                            height: 70,
-                            decoration: const BoxDecoration(
-                              color: PaletaCores.corPrimaria,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(50)),
+                          Material(
+                            color: Colors.transparent,
+                            child: Container(
+                              width: 70,
+                              height: 70,
+                              decoration: const BoxDecoration(
+                                color: PaletaCores.corPrimaria,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50)),
+                              ),
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                   Icons.add,
+                                    size: 50,
+                                    color: Colors.white,
+                                  )),
                             ),
                           ),
                           const SizedBox(
