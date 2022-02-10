@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tecplussystem/components/avatar_sistema.dart';
+import 'package:tecplussystem/data/dados.dart';
 import 'package:tecplussystem/models/os.dart';
 import 'package:tecplussystem/utils/paleta_cores.dart';
 
@@ -24,6 +25,13 @@ class ListaOs extends StatelessWidget {
             if (isIos) {
               sistemaAparelho = 'assets/apple-icon.png';
             }
+            final dadosCliente = dadosClientes.where((element) {
+              return element.id.contains(listaOs.cliente);
+            }).toList();
+/*
+                 final categoriaAlimentos = DADOS_ALIMENTOS.where((alimento) {
+      return alimento.categorias.contains(mCategoria.id);
+    }).toList(); */
 
             // ignore: avoid_unnecessary_containers
             return Container(
@@ -66,7 +74,11 @@ class ListaOs extends StatelessWidget {
                       onTap: () {},
                       // ignore: prefer_const_constructors
                       trailing: Text(
-                        'Erik Celulares',
+                        dadosCliente
+                            .map((e) => e.nome)
+                            .toString()
+                            .replaceAll('(', '')
+                            .replaceAll(')', ''),
                         // ignore: prefer_const_constructors
                         style: TextStyle(color: Colors.white),
                       ),

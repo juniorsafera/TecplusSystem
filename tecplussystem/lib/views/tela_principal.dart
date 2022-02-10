@@ -5,7 +5,6 @@ import 'package:tecplussystem/components/botao_menu.dart';
 import 'package:tecplussystem/components/lista_os.dart';
 import 'package:tecplussystem/data/dados.dart';
 import 'package:tecplussystem/utils/paleta_cores.dart';
-import 'package:line_icons/line_icons.dart';
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({
@@ -124,34 +123,62 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                           // Botao ADD
                           Material(
                             color: Colors.transparent,
-                            child: Container(
-                              width: 70,
-                              height: 70,
-                              decoration: const BoxDecoration(
-                                color: PaletaCores.corPrimaria,
+                            child: Card(
+                              shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(50)),
                               ),
-                              child: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                   Icons.add,
-                                    size: 50,
-                                    color: Colors.white,
-                                  )),
+                              elevation: 5,
+                              color: PaletaCores.corPrimaria,
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                decoration: const BoxDecoration(
+                                  color: PaletaCores.corPrimaria,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50)),
+                                ),
+                                child: RawMaterialButton(
+                                    shape: CircleBorder(),
+                                    onPressed: () {},
+                                    child: Icon(
+                                      Icons.add,
+                                      size: 30,
+                                      color: Colors.white,
+                                    )),
+                              ),
                             ),
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 2,
                           ),
                           // Botão Pesquisar
-                          Container(
-                            width: 70,
-                            height: 70,
-                            decoration: const BoxDecoration(
+                          Material(
+                            color: Colors.transparent,
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50)),
+                              ),
+                              elevation: 5,
                               color: PaletaCores.corPrimaria,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(50)),
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                decoration: const BoxDecoration(
+                                  color: PaletaCores.corPrimaria,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50)),
+                                ),
+                                child: RawMaterialButton(
+                                    shape: CircleBorder(),
+                                    onPressed: () {},
+                                    child: Icon(
+                                      Icons.search_rounded,
+                                      size: 30,
+                                      color: Colors.white,
+                                    )),
+                              ),
                             ),
                           ),
                           const SizedBox(
