@@ -11,6 +11,7 @@ class AvatarSistema extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: avoid_unnecessary_containers
     return  CircleAvatar(
+      
       backgroundColor: PaletaCores.corClara,
       child: Padding(
         padding: const EdgeInsets.all(3),

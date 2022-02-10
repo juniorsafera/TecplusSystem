@@ -26,28 +26,62 @@ class ListaOs extends StatelessWidget {
             }
 
             // ignore: avoid_unnecessary_containers
-            return Card(
-              color: PaletaCores.corPrimaria,
-              child: ListTile(
-                leading: AvatarSistema(sistema: sistemaAparelho),
-                title: Text(
-                  listaOs.aparelho,
-                  style: const TextStyle(
-                    color: Colors.white,
-                     fontSize: 22,
-                  ),
-                   
-                ),
-                subtitle: Text('(' +
-                  listaOs.problemasRelatados.toString().replaceAll('[', '').replaceAll(']','')
-                  + ')',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w100,
-                    color: Colors.white,
-                    fontSize: 16,
+            return Container(
+              child: Column(
+                children: [
+                  Card(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 100,
                     ),
-                ),
-                onTap: () {},
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    color: PaletaCores.corPrimaria,
+                    child: ListTile(
+                      leading: AvatarSistema(sistema: sistemaAparelho),
+                      title: Text(
+                        listaOs.aparelho,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.all(3),
+                        child: Text(
+                          '(' +
+                              listaOs.problemasRelatados
+                                  .toString()
+                                  .replaceAll('[', '')
+                                  .replaceAll(']', '') +
+                              ')',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w100,
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      onTap: () {},
+                      // ignore: prefer_const_constructors
+                      trailing: Text(
+                        'Erik Celulares',
+                        // ignore: prefer_const_constructors
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  // ignore: prefer_const_constructors
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Divider(
+                      height: 3,
+                      thickness: 0.3,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             );
           }),
