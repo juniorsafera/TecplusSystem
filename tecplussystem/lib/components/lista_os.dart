@@ -79,7 +79,7 @@ class ListaOs extends StatelessWidget {
                       onTap: () {},
                       // ignore: prefer_const_constructors
                       trailing: Container(
-                        margin: EdgeInsets.only(right: 80),
+                        margin: const EdgeInsets.only(right: 80),
                         child: Text(
                           dadosCliente
                               .map((e) => e.nome)
