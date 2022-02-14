@@ -53,6 +53,7 @@ class TelaInicial extends StatelessWidget {
       const Scaffold(body: Center(child: Text('Serviços'))),
     ];
     return DefaultTabController(
+      initialIndex: 1,
       length: _tabs.length,
       child: Scaffold(
         appBar: AppBar(
@@ -60,7 +61,9 @@ class TelaInicial extends StatelessWidget {
           backgroundColor: PaletaCores.corFundoBotao,
           bottom: TabBar(labelColor: Colors.white, tabs: _tabs),
         ),
-        body: TabBarView(children: _tabViews),
+        body: TabBarView(
+          
+          children: _tabViews),
       ),
     );
   }
