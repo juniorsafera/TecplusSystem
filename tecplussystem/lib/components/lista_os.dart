@@ -4,7 +4,7 @@ import 'package:tecplussystem/data/dados.dart';
 import 'package:tecplussystem/models/os.dart';
 import 'package:tecplussystem/utils/paleta_cores.dart';
 
-class ListaOs extends StatelessWidget {
+class ListaOs extends StatefulWidget {
   final List<ModelOS> os;
   const ListaOs({
     Key? key,
@@ -12,16 +12,23 @@ class ListaOs extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<ListaOs> createState() => _ListaOsState();
+}
+ 
+
+
+class _ListaOsState extends State<ListaOs> {
+  @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-          itemCount: os.length,
+          itemCount: widget.os.length,
           itemBuilder: (context, index) {
-            final listaOs = os[index];
+            final listaOs = widget.os[index];
 
             bool isIos = listaOs.sistema;
             String sistemaAparelho = 'assets/android-icon.png';
-
+            
             if (isIos) {
               sistemaAparelho = 'assets/apple-icon.png';
             }
