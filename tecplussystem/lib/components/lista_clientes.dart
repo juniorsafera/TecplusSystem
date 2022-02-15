@@ -36,7 +36,10 @@ class ListaClientes extends StatelessWidget {
                             children: [
                               Container(
                                 child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.2,
                                   child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       const Icon(
                                         Icons.people_alt,
@@ -56,6 +59,7 @@ class ListaClientes extends StatelessWidget {
                               ),
 
                               Container(
+                                width: MediaQuery.of(context).size.width * 0.2,
                                 child: Row(
                                   children: [
                                     const Icon(
@@ -72,6 +76,7 @@ class ListaClientes extends StatelessWidget {
                               ),
 
                               Container(
+                                width: MediaQuery.of(context).size.width * 0.2,
                                 child: Row(
                                   children: [
                                     const Icon(
@@ -87,15 +92,20 @@ class ListaClientes extends StatelessWidget {
                               ),
 
                               Container(
+                                width: MediaQuery.of(context).size.width * 0.2,
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     const Icon(
                                       Icons.calendar_today,
                                       color: Colors.white,
                                     ),
-                                    Text(
-                                      'Cadastrado: ${listaClientes.dataCadastro}',
-                                      style: TextStyle(color: Colors.white),
+                                    FittedBox(
+                                      fit: BoxFit.fitWidth,
+                                      child: Text(
+                                        'Cadastrado: ${listaClientes.dataCadastro.day}/0${listaClientes.dataCadastro.month}/${listaClientes.dataCadastro.year}',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
                                     ),
                                   ],
                                 ),
