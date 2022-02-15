@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tecplussystem/models/cliente.dart';
 import 'package:tecplussystem/utils/paleta_cores.dart';
 
-class ListaClientes extends StatelessWidget {
+class ListaClientes extends StatefulWidget {
   final List<ModelCliente> cliente;
   const ListaClientes({
     Key? key,
@@ -10,123 +10,85 @@ class ListaClientes extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<ListaClientes> createState() => _ListaClientesState();
+}
+
+class _ListaClientesState extends State<ListaClientes> {
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        color: PaletaCores.corPrimaria,
-        elevation: 8,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          height: 450,
-          child: ListView.builder(
-              itemCount: cliente.length,
-              itemBuilder: (contex, index) {
-                final listaClientes = cliente[index];
-                return Column(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.all(15),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.2,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      const Icon(
-                                        Icons.people_alt,
-                                        color: Colors.white,
-                                      ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        listaClientes.nome,
-                                        style: const TextStyle(
-                                            color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.phone,
-                                      color: Colors.white,
-                                    ),
-                                    Text(
-                                      'Telefone: ${listaClientes.telefone}',
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                              ),
-
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.workspaces_filled,
-                                      color: Colors.white,
-                                    ),
-                                    Text(
-                                      'Tipo: ${listaClientes.tipo}',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                              ),
-
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    const Icon(
-                                      Icons.calendar_today,
-                                      color: Colors.white,
-                                    ),
-                                    FittedBox(
-                                      fit: BoxFit.fitWidth,
-                                      child: Text(
-                                        'Cadastrado: ${listaClientes.dataCadastro.day}/0${listaClientes.dataCadastro.month}/${listaClientes.dataCadastro.year}',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              //Text('Data Cadastro: ${listaClientes.dataCadastro}'),
-                            ]),
+    return  Container(
+      
+      child: ListView.builder(
+          itemCount: widget.cliente.length,
+          itemBuilder: (context, index) {
+            final listaCliente= widget.cliente[index];
+ 
+            return Container(
+            
+              child: Column(
+                children: [
+                  Card(
+                    
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    color: PaletaCores.corPrimaria,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: ListTile(
+                        leading: Container(
+                          // ignore: prefer_const_constructors
+                          margin: EdgeInsets.only(left: 80),
+                          child:Text(listaCliente.id),),
+                        title: Container(
+                            // ignore: prefer_const_constructors
+                            margin: EdgeInsets.only(right: 100),
+                          child: Text(
+                            listaCliente.nome,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.all(3),
+                          child: Text(
+                           listaCliente.tipo,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w100,
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                        onTap: () {},
+                        // ignore: prefer_const_constructors
+                        trailing: Container(
+                          margin: const EdgeInsets.only(right: 80),
+                          child: Text(
+                             listaCliente.telefone,
+                            // ignore: prefer_const_constructors
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Divider(
-                        height: 3,
-                        thickness: 0.3,
-                        color: Colors.white,
-                      ),
+                  ),
+                  // ignore: prefer_const_constructors
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Divider(
+                      height: 3,
+                      thickness: 0.3,
+                      color: Colors.white,
                     ),
-                  ],
-                );
-              }),
-        ),
-      ),
+                  ),
+                ],
+              ),
+            );
+          }),
     );
   }
 }
