@@ -17,6 +17,7 @@ class _TelaClientesState extends State<TelaClientes> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: MediaQuery.of(context).size.width,
         color: PaletaCores.corFundoAba,
         child: ListaClientes(
           cliente: cliente,
